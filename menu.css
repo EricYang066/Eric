@@ -1,34 +1,35 @@
 body {
-    background-color: whitesmoke;
+    background-color: black;
     font-family:Arial, Helvetica, sans-serif
 }
 
 .header {
+    color: gold;
     font-size: 120px;
     height: 120px;
     width: 800px;
     text-align: center;
     float: right;
     margin-right: 350px;
-    margin-top: 20px;
+    margin-top: 50px;
 }
 
 .content {
-    background-color: gainsboro;
+    background-color: black;
+    color: gold;
     margin-top: 20px;
     float: left;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding: 10px;
     margin-left: 20px;
+    border: 1px solid gold;
+    border-radius: 24px;
 }
 
 .button {
     float: right;
     margin-top: 150px;
     margin-right: 350px;
-    background-color: gray;
+    background-color: black;
     font-size: 200px;
     border-radius: 24px;
     padding-top: 20px;
@@ -37,13 +38,13 @@ body {
     padding-left: 200px;
     transition-duration: 0.6s;
     text-decoration: none;
-    color: white;
-    border: 3px solid gray;
+    color: gold;
+    border: 3px solid black;
 }
 
 .button:hover {
-    border: 3px solid gray;
+    border: 3px solid gold;
     background-color: white;
-    color: gray;
+    color: gold;
     border-radius: 150px;
 }
