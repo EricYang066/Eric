@@ -4,7 +4,7 @@ rooms = {
   (1,0): "Room a1 - There is a padlock on the door to the south and a keypad on the wall. There is also a shelf there.",
   (1,-1): "Room b1 - A control pad lays in the middle of the room with differently colored levers.",
   (-1,0): "Room a2 - The door to the south is locked by a padlock, and there are different numbered paintings on it.",
-  (-1,-1): "Room b2 - A pipe runs down from the ceiling.",
+  (-1,-1): "Room b2 - A pipe runs down from the ceiling."
 }
 
 position = (0,0)
