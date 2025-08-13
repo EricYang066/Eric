@@ -254,7 +254,7 @@ if position == (0,1):
 ☐ ☐ ☐
 ☐   ☐
 """)
-  print("You escaped.")
+  print("You have escaped.")
 
 if max_moves < 0:
   print("\nYou have failed.")
