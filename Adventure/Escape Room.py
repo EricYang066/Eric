@@ -52,6 +52,8 @@ while position != (0,1) and max_moves >= 0:
 ☐ ☐ ☐
 ✛   ☐
 """)
+  print("You have " + str(max_moves) + " moves left, so use them wisely.")
+  print("")
   
   if position == (0,0) and not one_keypad and "note" not in inventory:
     choice = input("Do you wish to search the empty fountain? (yes/no): ").lower()
@@ -255,4 +257,4 @@ if position == (0,1):
   print("You escaped.")
 
 if max_moves < 0:
-  print("\nYou failed.")
+  print("\nYou have failed.")
