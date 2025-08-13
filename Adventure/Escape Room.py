@@ -9,6 +9,7 @@ rooms = {
 
 position = (0,0)
 inventory = []
+max_moves = 15
 one_padlock = False
 one_keypad = False
 fountain = False
@@ -24,7 +25,7 @@ painting3 = False
 a2_padlock = False
 final_keypad = False
 
-while position != (0,1):
+while position != (0,1) and max_moves >= 0:
   print("\nYou are in " + rooms[position])
   if position == (0,0):
     print("""\n  ☐
@@ -205,12 +206,16 @@ while position != (0,1):
   
   if move == "up":
     previous_position = (x, y + 1)
+    max_moves -= 1
   elif move == "down":
     previous_position = (x, y - 1)
+    max_moves -= 1
   elif move == "left":
     previous_position = (x - 1, y)
+    max_moves -= 1
   elif move == "right":
     previous_position = (x + 1, y)
+    max_moves -= 1
   else:
     print("\nMake your move!.")
     continue
@@ -219,27 +224,35 @@ while position != (0,1):
     position = previous_position
   else:
     print("\nYou bumped into a wall.")
+    max_moves += 1
   
   if not one_padlock and position == (-1,0):
     position = (0,0)
     print("\nThat door is locked.")
+    max_moves += 1
   if not one_keypad and position == (1,0):
     position = (0,0)
     print("\nThat door is locked.")
+    max_moves += 1
   if not a1_padlock and position == (1,-1):
     position = (1,0)
     print("\nThat door is locked.")
+    max_moves += 1
   if not a2_padlock and position == (-1,-1):
     position = (-1,0)
     print("\nThat door is locked.")
+    max_moves += 1
   if not final_keypad and position == (0,1):
     position = (0,0)
     print("\nThat door is locked.")
+    max_moves += 1
 
 if position == (0,1):
-  if position == (0,1):
-    print("""\n  ✛
+  print("""\n  ✛
 ☐ ☐ ☐
 ☐   ☐
 """)
   print("You escaped.")
+
+if max_moves < 0:
+  print("\nYou failed.")
