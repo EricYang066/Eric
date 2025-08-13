@@ -25,8 +25,32 @@ a2_padlock = False
 final_keypad = False
 
 while position != (0,1):
-  print("")
-  print("You are in " + rooms[position])
+  print("\nYou are in " + rooms[position])
+  if position == (0,0):
+    print("""\n  ☐
+☐ ✛ ☐
+☐   ☐
+""")
+  if position == (1,0):
+    print("""\n  ☐
+☐ ☐ ✛
+☐   ☐
+""")
+  if position == (1,-1):
+    print("""\n  ☐
+☐ ☐ ☐
+☐   ✛
+""")
+  if position == (-1,0):
+    print("""\n  ☐
+✛ ☐ ☐
+☐   ☐
+""")
+  if position == (-1,-1):
+    print("""\n  ☐
+☐ ☐ ☐
+✛   ☐
+""")
   
   if position == (0,0) and not one_keypad and "note" not in inventory:
     choice = input("Do you wish to search the empty fountain? (yes/no): ").lower()
@@ -60,7 +84,7 @@ while position != (0,1):
       one_padlock = True
       print("You unlocked the door.")
     else:
-      print("Too bad.")
+      print("That may have been useful.")
   
   if position == (-1,0) and not painting1:
     choice3 = input("Do you wish to search the painting labeled '1'? (yes/no): ").lower()
@@ -68,7 +92,7 @@ while position != (0,1):
       painting1 = True
       print("You found a hidden '3' on it.")
     else:
-      print("Too bad.")
+      print("That may have been useful.")
   
   if position == (-1,0) and painting1 and not painting2:
     choice4 = input("Do you wish to search the painting labeled '2'? (yes/no): ").lower()
@@ -76,7 +100,7 @@ while position != (0,1):
       painting2 = True
       print("You found a hidden '6' on it.")
     else:
-      print("Too bad.")
+      print("That may have been useful.")
   
   if position == (-1,0) and painting1 and painting2 and not painting3:
     choice5 = input("Do you wish to search the painting labeled '3'? (yes/no): ").lower()
@@ -84,7 +108,7 @@ while position != (0,1):
       painting3 = True
       print("You found a hidden '7' on it.")
     else:
-      print("Too bad.")
+      print("That may have been useful.")
   
   if position == (1,0) and painting1 and painting2 and painting3 and not a1_keypad:
     print("The keypad on the wall has the numbers '3', '1', and '2' on it.")
@@ -107,7 +131,7 @@ while position != (0,1):
     elif choice5 == "green":
       print("The door stayed locked.")
     else:
-      print("Too bad.")
+      print("That may have been useful.")
   
   if position == (1,-1):
     while True:
@@ -127,7 +151,7 @@ while position != (0,1):
         print("You flicked the yellow lever.")
       elif lever_choice == "exit":
         if blue_lever and not red_lever and green_lever and not yellow_lever:
-          print("You hear something drop from the locked room adjacent to Room a1.")
+          print("You hear the jingle of keys emanating from the locked room adjacent to room a2.")
           break
         else:
           print("Nothing happened. Maybe try a different combination?")
@@ -140,7 +164,7 @@ while position != (0,1):
       a2_padlock = True
       print("The door unlocked.")
     else:
-      print("Too bad.")
+      print("That may have been useful.")
   
   if position == (-1,-1) and blue_lever and not red_lever and green_lever and not yellow_lever and not final_keypad:
     inventory.append("final_key")
@@ -156,9 +180,9 @@ while position != (0,1):
         inventory.append("final_note")
         print("Water rushes from the fountain and with it, a plastic note, it says: The product of the keypad codes for the door to room a1 and the keypad for the latch in the same room shall be the answer to your containment.")
       else:
-        print("Too bad.")
+        print("That may have been useful.")
     else:
-      print("Too bad.")
+      print("That may have been useful.")
   else:
     print("")
   
@@ -170,6 +194,7 @@ while position != (0,1):
       final_decision = input("Do you wish to leave? (yes/no): ")
       if final_decision == "yes":
         print("Then go upwards to be free!")
+        print("")
       else:
         print("Damn.")
     else:
@@ -211,4 +236,10 @@ while position != (0,1):
     position = (0,0)
     print("\nThat door is locked.")
 
-print("You escaped")
+if position == (0,1):
+  if position == (0,1):
+    print("""\n  ✛
+☐ ☐ ☐
+☐   ☐
+""")
+  print("You escaped.")
