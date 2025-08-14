@@ -9,7 +9,7 @@ rooms = {
 
 position = (0,0)
 inventory = []
-max_moves = 15
+max_moves = 20
 one_padlock = False
 one_keypad = False
 fountain = False
@@ -27,31 +27,41 @@ final_keypad = False
 
 while position != (0,1) and max_moves >= 0:
   print("\nYou are in " + rooms[position])
-  if position == (0,0):
-    print("""\n  ☐
-☐ ✛ ☐
-☐   ☐
-""")
-  if position == (1,0):
-    print("""\n  ☐
-☐ ☐ ✛
-☐   ☐
-""")
-  if position == (1,-1):
-    print("""\n  ☐
-☐ ☐ ☐
-☐   ✛
-""")
-  if position == (-1,0):
-    print("""\n  ☐
-✛ ☐ ☐
-☐   ☐
-""")
-  if position == (-1,-1):
-    print("""\n  ☐
-☐ ☐ ☐
-✛   ☐
-""")
+  mat = [
+    [" ","■"," "],
+    ["■","☐","■"],
+    ["■"," ","■"]
+  ]
+
+  if one_keypad:
+    mat[1][2] = "☐"
+  if one_padlock:
+    mat[1][0] = "☐"
+  if a1_padlock:
+    mat[2][2] = "☐"
+  if a2_padlock:
+    mat[2][0] = "☐"
+  if final_keypad:
+    mat[0][1] = "☐"
+
+  c, d = position
+  if position != (1, -1) or position != (-1, -1):
+    yp = c + 1
+    xp = d + 1
+  if position == (1, -1):
+    yp = c + 1
+    xp = d
+  if position == (-1, -1):
+    yp = c - 2
+    xp = d
+
+  mat[xp][yp] = "✛"
+
+  for row in mat:
+    for element in row:
+      print(element, end=' ')
+    print()
+  
   print("You have " + str(max_moves) + " moves left, so use them wisely.")
   print("")
   
