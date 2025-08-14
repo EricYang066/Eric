@@ -25,7 +25,7 @@ painting3 = False
 a2_padlock = False
 final_keypad = False
 
-while position != (0,1) and max_moves >= 0:
+while position != (0,1) and max_moves > 0:
   print("\nYou are in " + rooms[position])
   mat = [
     [" ","■"," "],
@@ -63,6 +63,8 @@ while position != (0,1) and max_moves >= 0:
     print()
   
   print("You have " + str(max_moves) + " moves left, so use them wisely.")
+
+  print("\nYour inventory includes: " + str(inventory) + ".")
   print("")
   
   if position == (0,0) and not one_keypad and "note" not in inventory:
@@ -164,22 +166,21 @@ while position != (0,1) and max_moves >= 0:
         print("You flicked the yellow lever.")
       elif lever_choice == "exit":
         if blue_lever and not red_lever and green_lever and not yellow_lever:
-          print("You hear the jingle of keys emanating from the locked room adjacent to room a2.")
+          print("You hear the jingle of keys hitting the ground emanating from the locked room adjacent to room a2.")
           break
         else:
           print("Nothing happened. Maybe try a different combination?")
           continue
   
-  if position == (-1,0) and "green_key" in inventory:
+  if position == (-1,0) and "final_key" not in inventory:
     key2 = input("Do you wish to use the green key to unlock the door. (yes/no): ")
     if key2 == "yes":
-      inventory.remove("green_key")
       a2_padlock = True
       print("The door unlocked.")
     else:
       print("That may have been useful.")
   
-  if position == (-1,-1) and blue_lever and not red_lever and green_lever and not yellow_lever and not final_keypad:
+  if position == (-1,-1) and blue_lever and not red_lever and green_lever and not yellow_lever and not final_keypad and "final_key" not in inventory:
     inventory.append("final_key")
     print("You found a key.")
     print("It seems to have fallen from the pipe.")
@@ -199,7 +200,7 @@ while position != (0,1) and max_moves >= 0:
   else:
     print("")
   
-  if position == (0,0) and "final_note" in inventory:
+  if position == (0,0) and "final_note" in inventory and not final_keypad:
     final_code = input("What is the code to the keypad on the wall?: ")
     if final_code == "1867968":
       final_keypad = True
@@ -260,11 +261,7 @@ while position != (0,1) and max_moves >= 0:
     max_moves += 1
 
 if position == (0,1):
-  print("""\n  ✛
-☐ ☐ ☐
-☐   ☐
-""")
   print("You have escaped.")
 
-if max_moves < 0:
+if max_moves <= 0:
   print("\nYou have failed.")
