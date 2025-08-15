@@ -56,12 +56,19 @@ while position != (0,1) and max_moves > 0:
     xp = d
 
   mat[xp][yp] = "✛"
+  print("")
 
   for row in mat:
     for element in row:
       print(element, end=' ')
     print()
   
+  if not one_keypad:
+    print("\nThe black squares on your mini-map represent the rooms that you cannot access.")
+    print("The crosshair on your mini-map shows you the room that you are in currecntly.")
+    print("White squares will show up on your mini-map in the near future, these will show you the rooms you do have access to.")
+
+  print("")
   print("You have " + str(max_moves) + " moves left, so use them wisely.")
 
   print("\nYour inventory includes: " + str(inventory) + ".")
