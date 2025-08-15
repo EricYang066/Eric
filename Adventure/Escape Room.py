@@ -23,6 +23,7 @@ painting1 = False
 painting2 = False
 painting3 = False
 a2_padlock = False
+green_key_door = False
 final_keypad = False
 
 while position != (0,1) and max_moves > 0:
@@ -173,16 +174,18 @@ while position != (0,1) and max_moves > 0:
         print("You flicked the yellow lever.")
       elif lever_choice == "exit":
         if blue_lever and not red_lever and green_lever and not yellow_lever:
+          green_key_door = True
           print("You hear the jingle of keys hitting the ground emanating from the locked room adjacent to room a2.")
           break
         else:
           print("Nothing happened. Maybe try a different combination?")
           continue
   
-  if position == (-1,0) and "final_key" not in inventory:
+  if position == (-1,0) and green_key_door:
     key2 = input("Do you wish to use the green key to unlock the door. (yes/no): ")
     if key2 == "yes":
       a2_padlock = True
+      green_key_door = False
       print("The door unlocked.")
     else:
       print("That may have been useful.")
@@ -268,7 +271,7 @@ while position != (0,1) and max_moves > 0:
     max_moves += 1
 
 if position == (0,1):
-  print("You have escaped.")
+  print("\nYou have escaped.")
 
 if max_moves <= 0:
   print("\nYou have failed.")
