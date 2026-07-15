@@ -1,0 +1,50 @@
+body {
+    background-color: black;
+    font-family:Arial, Helvetica, sans-serif
+}
+
+.header {
+    color: gold;
+    font-size: 120px;
+    height: 120px;
+    width: 800px;
+    text-align: center;
+    float: right;
+    margin-right: 350px;
+    margin-top: 50px;
+}
+
+.content {
+    background-color: black;
+    color: gold;
+    margin-top: 20px;
+    float: left;
+    padding: 10px;
+    margin-left: 20px;
+    border: 1px solid gold;
+    border-radius: 24px;
+}
+
+.button {
+    float: right;
+    margin-top: 150px;
+    margin-right: 350px;
+    background-color: black;
+    font-size: 200px;
+    border-radius: 24px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-right: 200px;
+    padding-left: 200px;
+    transition-duration: 0.3s;
+    text-decoration: none;
+    color: gold;
+    border: 3px solid black;
+}
+
+.button:hover {
+    border: 3px solid gold;
+    background-color: white;
+    color: gold;
+    border-radius: 150px;
+}
